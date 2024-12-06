@@ -6,6 +6,82 @@ COMPUTE SERVICES :
 		○ AWS Lambda (Serverless compute)
 		○ AWS Batch, Elastic Beanstalk
                 Amazon ECS, EKS, Fargate!
+		### **Amazon EC2 (Elastic Compute Cloud)**  
+
+**Amazon EC2**
+
+    EC2 is a scalable compute service that allows you to launch and manage virtual servers (instances) in the cloud. It provides complete control over the underlying infrastructure, enabling customization based on your application requirements.
+
+
+
+### **Key Features**
+
+    1. **Flexible Compute Options**: 
+    - Choose from a wide variety of instance types optimized for different workloads (e.g., general-purpose, compute-optimized, memory-optimized, storage-optimized).
+    2. **Customizable**: 
+    - Full control over OS, software, and configurations.
+    3. **Persistent Resources**: 
+    - Ideal for applications that need to be always running or have stateful operations.
+    4. **Scalability**: 
+    - Supports manual, scheduled, or dynamic auto-scaling to adjust resources based on demand.
+    5. **Pricing Models**: 
+    - On-Demand, Reserved Instances, Spot Instances, and Savings Plans to optimize costs.
+
+
+### **How It Works**
+    1. **Launch**:  
+     - Launch an EC2 instance with a specific OS and configuration through the AWS Management Console, CLI, or SDK.
+    2. **Setup**:  
+    - Install your application, libraries, and dependencies.
+    3. **Scaling**:  
+    - Manually configure or set up auto-scaling to handle varying traffic loads.
+    4. **Integration**:  
+     - Use Elastic Load Balancer (ELB) for load distribution, Elastic Block Store (EBS) for persistent storage, and VPC for networking.
+
+
+### **Real-Time Example: Hosting a Web Application**
+
+    **Scenario**: Deploying a WordPress Website  
+    You need to host a WordPress site that requires persistent storage, consistent traffic, and a relational database.  
+
+    **Architecture**:  
+    1. **EC2 Instance**:  
+    - Host the WordPress application and web server (e.g., Apache, Nginx).  
+    2. **EBS Volume**:  
+    - Store the WordPress files persistently.  
+    3. **RDS**:  
+    - Use Amazon RDS for the MySQL database.  
+    4. **Elastic Load Balancer**:  
+    - Distribute traffic across multiple EC2 instances for fault tolerance.  
+    5. **Auto Scaling**:  
+    - Automatically add or remove instances based on traffic load.  
+
+
+
+### **Why and When to Use EC2 Over Lambda**
+
+    - **Long-Running Processes**  
+    - EC2 is suited for applications or tasks that need to run continuously or exceed Lambda's 15-minute execution limit.  
+    - **Custom Compute Needs**  
+    - Applications requiring specific OS configurations, GPUs, high memory, or CPU resources.  
+    - **Consistent High Traffic**  
+     - For high, predictable workloads, EC2 can be more cost-effective as it is not billed per request.  
+    - **Persistent Applications**  
+    - Services like web servers, gaming servers, or database applications that need to run 24/7.  
+
+
+
+### **Comparison of EC2 vs. Lambda**   
+
+    | **Criteria**             | **Lambda**                                    | **EC2**                                       |
+    |--------------------------|-----------------------------------------------|-----------------------------------------------|
+    | **Use Case**             | Event-driven tasks                           | Persistent, stateful applications             |
+    | **Scalability**          | Automatic scaling                            | Manual or auto-scaling (requires setup)       |
+    | **Control**              | Managed by AWS                               | Full control of OS, instance type, and setup |
+    | **Billing**              | Pay-per-request and duration (milliseconds)  | Pay for uptime (hourly or per second)         |
+    | **Customization**        | Limited                                      | Full control over configurations              |
+
+    In summary, **Lambda is ideal for event-driven and short-lived tasks**, while **EC2 is better for long-running, resource-intensive, or stateful applications requiring full control**.
 
    AWS Lambda (Serverless Compute) :
    
@@ -28,10 +104,10 @@ How It Works
 
 Real-Time Example: Image Processing Pipeline
 
-Scenario: Automatic Thumbnail Generation
+    Scenario: Automatic Thumbnail Generation
 
-You have a web application where users upload images to an S3 bucket. Each uploaded image should automatically generate a thumbnail.
-Architecture:
+     You have a web application where users upload images to an S3 bucket. Each uploaded image should automatically generate a thumbnail.
+    Architecture:
 
 	1. Trigger:
 		○ The user uploads an image to an S3 bucket.
@@ -166,7 +242,6 @@ When to Use Elastic Beanstalk?
 	• If you prefer to retain some control over the environment (e.g., access to EC2 instances).
 	• For applications that don’t require fine-grained control over underlying infrastructure.
  
-Let me know if you’d like additional details about setting it up or a specific use case!
 
 
 
